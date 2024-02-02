@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redundancy-aware Action Spaces for Robot Learning</title>
+    <!-- Bulma CSS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Font Awesome icons  -->
+    <script src="https://kit.fontawesome.com/b165665cab.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container p-3 is-primary">
+        <!-- Title section -->
+        <br>
+        <div class="block is-center has-text-centered">
+            <h1 class="title is-1 is-spaced">Redundancy-aware Action Spaces for Robot Learning</h1>
+
+            <div class="columns is-mobile is-centered is-multiline">
+                <div class="column is-one-third-mobile is-narrow-desktop">
+                    <figure class="image container is-96x96">
+                        <img class="is-rounded" src="./resources/avatars/pietro_mazzaglia.jpg">
+                    </figure>
+                    <p class="subtitle is-5"> Pietro Mazzaglia*</p>
+                </div>
+                <div class="column is-one-third-mobile is-narrow-desktop">
+                    <figure class="image container is-96x96">
+                        <img class="is-rounded" src="./resources/avatars/nic_backshall.jpeg">
+                    </figure>
+                    <p class="subtitle is-5"> Nicholas Backshall*</p>
+                </div>
+                <div class="column is-one-third-mobile is-narrow-desktop">
+                    <figure class="image container is-96x96">
+                        <img class="is-rounded" src="./resources/avatars/xiao_ma.jpg">
+                    </figure>
+                    <p class="subtitle is-5"> Xiao Ma</p>
+                </div>
+                <div class="column is-one-third-mobile is-narrow-desktop">
+                    <figure class="image container is-96x96">
+                        <img class="is-rounded" src="./resources/avatars/stephen_james.jpg">
+                    </figure>
+                    <p class="subtitle is-5"> Stephen James</p>
+                </div>
+            </div>
+            <span>* equal contribution</span>
+        </div>
+        <br />
+
+
+        <!-- Abstract -->
+        <div class="block box">
+            <h2 class="title is-3"> Abstract </h2>
+            <p class="is-size-5">
+                Joint and end-effector are the two dominant action spaces for robot arms within the robot learning literature. Joint actions provide precise control over the robot's pose, but tend to suffer from inefficient training; end-effector actions boast data-efficient training but sacrifice the ability to perform tasks in confined spaces due to limited control over the full joint configuration. This work analyzes the criteria for designing action spaces for robot manipulation and introduces ER, a novel action space formulation that, by addressing the redundancies present in the manipulator, aims to combine the advantages of both joint and end-effector action spaces, offering fine-grained comprehensive control with overactuated robot arms whilst achieving highly efficient robot learning. We present two implementations of ER, ERA and ERJ, and we show that ERJ demonstrates superior performance, especially when precise control over the robot configuration is required. We validate our results both in simulated and real robotic environments. 
+            </p>
+        </div>
+
+        <br />
+
+        <!-- Approach -->
+        <div class="block box is-size-4">
+            <h2 class="title is-3">Reinforcement Learning in RLBench (full-body tasks)</h2>
+            <br>
+            <div class="is-text is-1">
+                ERJ policies executed in the RLBench environments. The videos show the agent's inputs cameras (third-view and wrist) in the resolution given to the agent (84x84).
+            </div>
+            <br>
+            <div class="content has-text-centered">
+                <video width="32%" height="32%" controls="controls">
+                    <source src="resources/sim_tasks/target_elbow.mp4" type="video/mp4" />
+                </video>
+                <video width="32%" height="32%" controls="controls">
+                    <source src="resources/sim_tasks/bottle_out_fridge.mp4" type="video/mp4" />
+                </video>
+                <video width="32%" height="32%" controls="controls">
+                    <source src="resources/sim_tasks/slide_cup.mp4" type="video/mp4" />
+                </video>
+
+                <video width="32%" height="32%" controls="controls">
+                    <source src="resources/sim_tasks/coffee.mp4" type="video/mp4" />
+                </video>
+                <video width="32%" height="32%" controls="controls">
+                    <source src="resources/sim_tasks/meat_off_grill.mp4" type="video/mp4" />
+                </video>
+                <video width="32%" height="32%" controls="controls">
+                    <source src="resources/sim_tasks/take_cup_out_cabinet.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+        <!-- Approach -->
+        <div class="block box is-size-4">
+            <h2 class="title is-3">Imitation Learning in Real-world</h2>
+            <br>
+            <h3 class="subtitle is-3"> End-Effector (EE) action space </h2>
+            <div class="is-text is-1">
+                The agent struggles to enter the cabinet, as it keeps its elbow straight, failing the task.
+            </div>
+            <br>
+            <div class="content has-text-centered">
+                <video width="45%" height="45%" controls="controls">
+                    <source src="resources/IMG_1627.mp4" type="video/mp4" />
+                </video>
+                <video width="45%" height="45%" controls="controls">
+                    <source src="resources/IMG_1629.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <h3 class="subtitle is-3"> ER (ours) action space </h2>
+            <div class="is-text is-1">
+                The agent is able to enter the cabinet, by controlling its elbow, and eventually succeeds in the task.
+            </div>
+            <br>
+            <div class="content has-text-centered">
+                <video width="45%" height="45%" controls="controls">
+                    <source src="resources/IMG_1626.mp4" type="video/mp4" />
+                </video>
+                <video width="45%" height="45%" controls="controls">
+                    <source src="resources/IMG_1628.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+
+        <footer class="footer pt-5 pb-5">
+            <div class="content has-text-centered">
+                <p>
+                    Website created by
+                    <a href="https://mazpie.github.io"><strong>Pietro Mazzaglia</strong></a>.
+                    <br />
+                    <br />
+                    You are free to borrow the source code,
+                    but please link back to this page in your footer <br />
+                    (and remember to remove the analytics code included in the header of the website).
+                </p>
+            </div>
+        </footer>
+
+</body>
+
+</html>
