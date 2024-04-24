@@ -54,7 +54,7 @@
         <div class="block box">
             <h2 class="title is-3"> Abstract </h2>
             <p class="is-size-5">
-                Joint and end-effector are the two dominant action spaces for robot arms within the robot learning literature. Joint actions provide precise control over the robot's pose, but tend to suffer from inefficient training; end-effector actions boast data-efficient training but sacrifice the ability to perform tasks in confined spaces due to limited control over the full joint configuration. This work analyzes the criteria for designing action spaces for robot manipulation and introduces ER, a novel action space formulation that, by addressing the redundancies present in the manipulator, aims to combine the advantages of both joint and end-effector action spaces, offering fine-grained comprehensive control with overactuated robot arms whilst achieving highly efficient robot learning. We present two implementations of ER, ERA and ERJ, and we show that ERJ demonstrates superior performance, especially when precise control over the robot configuration is required. We validate our results both in simulated and real robotic environments. 
+            Joint space and task space control are the two dominant action modes for controlling robot arms within the robot learning literature. Actions in joint space provide precise control over the robot's pose, but tend to suffer from inefficient training; actions in task space boast data-efficient training but sacrifice the ability to perform tasks in confined spaces due to limited control over the full joint configuration. This work analyses the criteria for designing action spaces for robot manipulation and introduces <b>ER</b> (<b>E</b>nd-effector <b>R</b>edundancy), a novel action space formulation that, by addressing the redundancies present in the manipulator, aims to combine the advantages of both joint and task spaces, offering fine-grained comprehensive control with overactuated robot arms whilst achieving highly efficient robot learning. We present two implementations of ER, <b>ERA</b>ngle (<b>ERA</b>) and <b>ERJ</b>oint (<b>ERJ</b>), and we show that ERJ in particular demonstrates superior performance across multiple settings, especially when precise control over the robot configuration is required. We validate our results both in simulated and real robotic environments.
             </p>
         </div>
 
@@ -94,30 +94,37 @@
         <div class="block box is-size-4">
             <h2 class="title is-3">Imitation Learning in Real-world</h2>
             <br>
-            <h3 class="subtitle is-3"> End-Effector (EE) action space </h2>
+            <h3 class="subtitle is-3"> Retrieve Bear </h2>
             <div class="is-text is-1">
-                The agent struggles to enter the cabinet, as it keeps its elbow straight, failing the task.
+                The agent operating in task space struggles to retrieve the bear from the shelf, as it keeps its elbow straight, failing the task.
+                However, the agent operating in ERJ space is able to bend its elbow and successfully retrieve the bear.
             </div>
             <br>
             <div class="content has-text-centered">
-                <video width="45%" height="45%" controls="controls">
-                    <source src="resources/IMG_1627.mp4" type="video/mp4" />
-                </video>
-                <video width="45%" height="45%" controls="controls">
-                    <source src="resources/IMG_1629.mp4" type="video/mp4" />
+                <video width="95%" height="45%" controls="controls">
+                    <source src="resources/e3_ee_bear.mp4" type="video/mp4" />
                 </video>
             </div>
-            <h3 class="subtitle is-3"> ER (ours) action space </h2>
+            <h3 class="subtitle is-3"> Push Button Elbow </h2>
             <div class="is-text is-1">
-                The agent is able to enter the cabinet, by controlling its elbow, and eventually succeeds in the task.
+                The agent operating in task space is unable to push the button, as it is unable to control the free motion of the elbow.
+                However, the agent operating in ERJ space is able to control the elbow and successfully push the button.
             </div>
             <br>
             <div class="content has-text-centered">
-                <video width="45%" height="45%" controls="controls">
-                    <source src="resources/IMG_1626.mp4" type="video/mp4" />
+                <video width="95%" height="45%" controls="controls">
+                    <source src="resources/e3_ee_button.mp4" type="video/mp4" />
                 </video>
-                <video width="45%" height="45%" controls="controls">
-                    <source src="resources/IMG_1628.mp4" type="video/mp4" />
+            </div>
+            <h3 class="subtitle is-3"> Grasp and Remove Cup </h2>
+            <div class="is-text is-1">
+                The agent operating in task space is unable to enter the cabinet and grasp the cup, as it is unable to control the free motion of the elbow.
+                However, the agent operating in ERJ space is able to control the elbow and successfully grasp and remove the cup.
+            </div>
+            <br>
+            <div class="content has-text-centered">
+                <video width="95%" height="45%" controls="controls">
+                    <source src="resources/e3_ee_cup.mp4" type="video/mp4" />
                 </video>
             </div>
         </div>
