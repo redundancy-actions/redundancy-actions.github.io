@@ -17,7 +17,7 @@
         <!-- Title section -->
         <br>
         <div class="block is-center has-text-centered">
-            <h1 class="title is-1 is-spaced">Redundancy-aware Action Spaces for Robot Learning</h1>
+            <h1 class="title is-1 is-spaced">Redundancy-aware Action Spaces <br> for Robot Learning</h1>
 
             <div class="columns is-mobile is-centered is-multiline">
                 <div class="column is-one-third-mobile is-narrow-desktop">
@@ -44,14 +44,25 @@
                     </figure>
                     <p class="subtitle is-5"> Stephen James</p>
                 </div>
+                
             </div>
             <span>* equal contribution</span>
+            <br>
+            <br>
+            <a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2406.04144">
+                <span class="icon is-small"><i class="fa-regular fa-file-pdf" aria-hidden="true"></i></span>
+                <span>Article</span>
+            </a>
+            <a class="button is-dark is-rounded" href="https://github.com/mazpie/redundancy-action-spaces">
+                <span class="icon is-small"><i class="fa-brands fa-github" aria-hidden="true"></i></span>
+                <span>Code</span>
+            </a>
         </div>
         <br />
 
 
         <!-- Abstract -->
-        <div class="block box">
+        <div class="block">
             <h2 class="title is-3"> Abstract </h2>
             <p class="is-size-5">
             Joint space and task space control are the two dominant action modes for controlling robot arms within the robot learning literature. Actions in joint space provide precise control over the robot's pose, but tend to suffer from inefficient training; actions in task space boast data-efficient training but sacrifice the ability to perform tasks in confined spaces due to limited control over the full joint configuration. This work analyses the criteria for designing action spaces for robot manipulation and introduces <b>ER</b> (<b>E</b>nd-effector <b>R</b>edundancy), a novel action space formulation that, by addressing the redundancies present in the manipulator, aims to combine the advantages of both joint and task spaces, offering fine-grained comprehensive control with overactuated robot arms whilst achieving highly efficient robot learning. We present two implementations of ER, <b>ERA</b>ngle (<b>ERA</b>) and <b>ERJ</b>oint (<b>ERJ</b>), and we show that ERJ in particular demonstrates superior performance across multiple settings, especially when precise control over the robot configuration is required. We validate our results both in simulated and real robotic environments.
@@ -61,39 +72,46 @@
         <br />
 
         <!-- Approach -->
-        <div class="block box is-size-4">
+        <div class="block is-size-4">
             <h2 class="title is-3">Reinforcement Learning in RLBench (full-body tasks)</h2>
-            <br>
-            <div class="is-text is-1">
-                ERJ policies executed in the RLBench environments. The videos show the agent's inputs cameras (third-view and wrist) in the resolution given to the agent (84x84).
+            <div class="has-text-centered">
+                <img style="width: 50%" src="resources/er_fig1_v2.png" alt="">
             </div>
             <br>
-            <div class="content has-text-centered">
-                <video width="32%" height="32%" controls="controls">
-                    <source src="resources/sim_tasks/target_elbow.mp4" type="video/mp4" />
-                </video>
-                <video width="32%" height="32%" controls="controls">
-                    <source src="resources/sim_tasks/bottle_out_fridge.mp4" type="video/mp4" />
-                </video>
-                <video width="32%" height="32%" controls="controls">
-                    <source src="resources/sim_tasks/slide_cup.mp4" type="video/mp4" />
-                </video>
-
-                <video width="32%" height="32%" controls="controls">
-                    <source src="resources/sim_tasks/coffee.mp4" type="video/mp4" />
-                </video>
-                <video width="32%" height="32%" controls="controls">
-                    <source src="resources/sim_tasks/meat_off_grill.mp4" type="video/mp4" />
-                </video>
-                <video width="32%" height="32%" controls="controls">
-                    <source src="resources/sim_tasks/take_cup_out_cabinet.mp4" type="video/mp4" />
-                </video>
+            <div class="is-text is-1">
+                ERJ policies shown solving the tasks in the RLBench simulation environments. The videos show the agent's inputs cameras (third-view and wrist) in the resolution given to the agent (84x84).
+            </div>
+            <br>
+            <div class="content is-flex is-flex-direction-column has-text-centered">
+                <div class="row">
+                    <video width="26%"  playsinline autoplay loop preload muted>
+                        <source src="resources/sim_tasks/target_elbow.mp4" type="video/mp4" />
+                    </video>
+                    <video width="26%"  playsinline autoplay loop preload muted>
+                        <source src="resources/sim_tasks/bottle_out_fridge.mp4" type="video/mp4" />
+                    </video>
+                    <video width="26%"  playsinline autoplay loop preload muted>
+                        <source src="resources/sim_tasks/slide_cup.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div class="row">
+                    <video width="26%"  playsinline autoplay loop preload muted>
+                        <source src="resources/sim_tasks/coffee.mp4" type="video/mp4" />
+                    </video>
+                    <video width="26%"  playsinline autoplay loop preload muted>
+                        <source src="resources/sim_tasks/meat_off_grill.mp4" type="video/mp4" />
+                    </video>
+                    <video width="26%"  playsinline autoplay loop preload muted>
+                        <source src="resources/sim_tasks/take_cup_out_cabinet.mp4" type="video/mp4" />
+                    </video>
+                </div>
             </div>
         </div>
         <!-- Approach -->
-        <div class="block box is-size-4">
+        <br>
+        <br>
+        <div class="block is-size-4">
             <h2 class="title is-3">Imitation Learning in Real-world</h2>
-            <br>
             <h3 class="subtitle is-3"> Retrieve Bear </h2>
             <div class="is-text is-1">
                 The agent operating in task space struggles to retrieve the bear from the shelf, as it keeps its elbow straight, failing the task.
